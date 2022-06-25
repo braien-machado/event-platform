@@ -22,6 +22,7 @@ const GET_LESSON_BY_SLUG_QUERY = gql`
         name
       }
       description
+      videoId
     }
   }
 `;
@@ -31,6 +32,7 @@ interface GetLessonBySlugResponse {
     id: string;
     title: string;
     description: string;
+    videoId: string;
     teacher: {
       avatarURL: string;
       bio: string;
@@ -64,7 +66,7 @@ export default function Video(props: VideoProps) {
       <div className="bg-black flex justify-center">
         <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
           <Player>
-            <Youtube videoId={data.lesson.id} />
+            <Youtube videoId={data.lesson.videoId} />
             <DefaultUi />
           </Player>
         </div>
