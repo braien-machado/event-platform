@@ -14,25 +14,23 @@ import { gql, useQuery } from '@apollo/client';
 const GET_LESSON_BY_SLUG_QUERY = gql`
   query GetLessonBySlug ($slug: String) {
     lesson(where: {slug: $slug}) {
-      id
       title
+      videoId
+      description
       teacher {
         avatarURL
         bio
         name
       }
-      description
-      videoId
     }
   }
 `;
 
 interface GetLessonBySlugResponse {
   lesson: {
-    id: string;
     title: string;
-    description: string;
     videoId: string;
+    description: string;
     teacher: {
       avatarURL: string;
       bio: string;

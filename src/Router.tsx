@@ -1,12 +1,15 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Event from './pages/Event';
+import Subscribe from './pages/Subscribe';
+
+const DEFAULT_SLUG = 'abertura-do-evento-ignite-lab';
 
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
-      <Route path="/event" element={<Event />} />
+      <Route path="/" element={<Subscribe />} />
+      <Route path="/event" element={<Navigate to={`/event/lesson/${DEFAULT_SLUG}`} />} />
       <Route path="/event/lesson/:slug" element={<Event />} />
     </Routes>
   );
