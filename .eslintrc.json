@@ -23,7 +23,6 @@
     "rules": {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "max-len": ["warn", { "code": 80 }],
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
         "import/extensions": [
             "error",
