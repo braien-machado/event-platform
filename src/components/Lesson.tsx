@@ -28,7 +28,12 @@ export default function Lesson(props: LessonProps) {
   const availableDateFormatted = format(availableAt, "EEEE' • 'd' de 'MMMM' • 'k'h'mm", { locale: ptBR });
 
   return (
-    <Link to={`/event/lesson/${slug}`} className="group">
+    <Link
+      to={`/event/lesson/${slug}`}
+      className={classNames('group', {
+        'pointer-events-none': !isLessonAvailable,
+      })}
+    >
       <span className=" text-gray-300">
         {availableDateFormatted}
       </span>
