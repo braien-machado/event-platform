@@ -10,8 +10,15 @@ interface LessonProps {
   title: string;
   slug: string;
   availableAt: Date;
-  type: 'live' | 'studio';
+  type: 'live' | 'original' | 'acoustic' | 'cover';
 }
+
+const songVersion = {
+  original: 'original',
+  live: 'ao vivo',
+  acoustic: 'acústica',
+  cover: 'cover',
+};
 
 export default function Lesson(props: LessonProps) {
   const { slug: slugParam } = useParams<{ slug: string }>();
@@ -29,7 +36,7 @@ export default function Lesson(props: LessonProps) {
 
   return (
     <Link
-      to={`/event/lesson/${slug}`}
+      to={`/event/song/${slug}`}
       className={classNames('group', {
         'pointer-events-none': !isLessonAvailable,
       })}
@@ -60,12 +67,12 @@ export default function Lesson(props: LessonProps) {
               Em breve
             </span>
           )}
-          <span className={classNames('text-xs rounded px-2 py-[0.125rem] text-white border border-green-300 font-bold', {
+          <span className={classNames('uppercase text-xs rounded px-2 py-[0.125rem] text-white border border-green-300 font-bold', {
             'border-white': isActiveLesson,
             'border-green-300': !isActiveLesson,
           })}
           >
-            { type === 'live' ? 'AO VIVO' : 'ESTÚDIO' }
+            { songVersion[type] }
           </span>
         </header>
         <strong className={classNames('mt-5 block', {
