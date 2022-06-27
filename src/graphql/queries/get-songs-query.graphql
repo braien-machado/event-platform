@@ -1,0 +1,9 @@
+query GetSongs {
+  songs {
+    availableAt
+    id
+    slug
+    songVersion
+    title
+  }
+}

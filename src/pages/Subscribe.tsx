@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
-import imgUrl from '../assets/code-mockup.png';
+import youtubeBg from '../assets/youtube-bg.png';
 import { useCreateSubscriberMutation } from '../graphql/generated';
 
 export default function Subscribe() {
@@ -24,20 +24,26 @@ export default function Subscribe() {
   }
 
   return (
-    <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
-      <div className=" w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto">
-        <div className="max-w-[640px]">
+    <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col justify-center items-center">
+      <img
+        src={youtubeBg}
+        alt="code mockup"
+        className="absolute opacity-50 -z-10 h-[500px]"
+      />
+      <div className=" w-full max-w-[1100px] flex items-center justify-between mx-auto">
+        <div className="max-w-[640px] flex flex-col items-center">
           <Logo />
           <h1 className="mt-8 text-[2.5rem] leading-tight">
-            Construa uma
+            Conheça
             {' '}
-            <strong className="text-blue-500">aplicação completa</strong>
-            , do zero, com
+            <strong className="text-blue-500">minha playlist completa</strong>
             {' '}
-            <strong className="text-blue-500">React</strong>
+            no
+            {' '}
+            <strong className="text-blue-500">YouTube</strong>
           </h1>
           <p className="mt-4 text-gray-200 leading-relaxed">
-            Em apenas uma semana você vai dominar na prática uma das tecnologias mais utilizadas e com alta demanda para acessar as melhores oportunidades do mercado.
+            A cada dia um novo vídeo da minha seleção de músicas no youtube para você conhecer e adicionar na sua própria.
           </p>
         </div>
         <div className="p-8 bg-gray-700 border border-gray-500 rounded">
@@ -61,16 +67,11 @@ export default function Subscribe() {
               className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-color disabled:opacity-50"
               disabled={loading}
             >
-              Garantir minha vaga
+              Quero conhecer a playlist
             </button>
           </form>
         </div>
       </div>
-      <img
-        src={imgUrl}
-        alt="code mockup"
-        className="mt-10"
-      />
     </div>
   );
 }

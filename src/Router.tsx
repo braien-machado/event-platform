@@ -3,14 +3,14 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Event from './pages/Event';
 import Subscribe from './pages/Subscribe';
 
-const DEFAULT_SLUG = 'abertura-do-evento-ignite-lab';
+const DEFAULT_SLUG = 'popular-monster';
 
 export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Subscribe />} />
-      <Route path="/event" element={<Navigate to={`/event/lesson/${DEFAULT_SLUG}`} />} />
-      <Route path="/event/lesson/:slug" element={<Event />} />
+      <Route path="/event" element={<Navigate to={`/event/song/${DEFAULT_SLUG}`} />} />
+      <Route path="/event/song/:slug" element={<Event />} />
     </Routes>
   );
 }
