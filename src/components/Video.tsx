@@ -1,9 +1,9 @@
 import { DefaultUi, Player, Youtube } from '@vime/react';
 import {
+  Article,
   CaretRight,
-  DiscordLogo,
   FileArrowDown,
-  Lightning,
+  MusicNote,
 } from 'phosphor-react';
 import React from 'react';
 import '@vime/core/themes/default.css';
@@ -46,7 +46,7 @@ export default function Video(props: VideoProps) {
               {data.song.title}
             </h1>
             <p className="mt-4 text-gray-200 leading-relaxed">
-              {data.song.lyrics}
+              {data.song.description}
             </p>
             { data.song.author && (
               <div className="flex items-center gap-4 mt-6">
@@ -67,14 +67,30 @@ export default function Video(props: VideoProps) {
             ) }
           </div>
           <div className="flex flex-col gap-4">
-            <a href="/" className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
-              <DiscordLogo size={24} />
-              Comunidade do Discord
-            </a>
-            <a href="/" className="p-4 text-sm border border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors">
-              <Lightning size={24} />
-              Acesse o desafio
-            </a>
+            {
+              data.song.lyrics && (
+                <a
+                  className="p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors"
+                  href={data.song.lyrics}
+                  target="blank"
+                >
+                  <Article size={24} />
+                  Veja a letra
+                </a>
+              )
+            }
+            {
+              data.song.chords && (
+                <a
+                  className="p-4 text-sm border border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors"
+                  href={data.song.chords}
+                  target="blank"
+                >
+                  <MusicNote size={24} />
+                  Aprenda a tocá-la
+                </a>
+              )
+            }
           </div>
         </div>
         <div className="gap-8 mt-20 grid grid-cols-2">

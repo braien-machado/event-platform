@@ -3425,10 +3425,12 @@ export type Song = Node & {
   __typename?: 'Song';
   author?: Maybe<Author>;
   availableAt?: Maybe<Scalars['DateTime']>;
+  chords?: Maybe<Scalars['String']>;
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
   /** User that created this document */
   createdBy?: Maybe<User>;
+  description?: Maybe<Scalars['String']>;
   /** Get the document in other stages */
   documentInStages: Array<Song>;
   /** List of Song versions */
@@ -3519,7 +3521,9 @@ export type SongConnection = {
 export type SongCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>;
   availableAt?: InputMaybe<Scalars['DateTime']>;
+  chords?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  description?: InputMaybe<Scalars['String']>;
   lyrics?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   songVersion: SongVersion;
@@ -3577,6 +3581,25 @@ export type SongManyWhereInput = {
   availableAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   availableAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
+  chords?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  chords_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  chords_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  chords_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  chords_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  chords_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  chords_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  chords_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  chords_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  chords_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -3593,6 +3616,25 @@ export type SongManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  description?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  description_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  description_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  description_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  description_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  description_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  description_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3735,8 +3777,12 @@ export type SongManyWhereInput = {
 export enum SongOrderByInput {
   AvailableAtAsc = 'availableAt_ASC',
   AvailableAtDesc = 'availableAt_DESC',
+  ChordsAsc = 'chords_ASC',
+  ChordsDesc = 'chords_DESC',
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
+  DescriptionAsc = 'description_ASC',
+  DescriptionDesc = 'description_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   LyricsAsc = 'lyrics_ASC',
@@ -3758,6 +3804,8 @@ export enum SongOrderByInput {
 export type SongUpdateInput = {
   author?: InputMaybe<AuthorUpdateOneInlineInput>;
   availableAt?: InputMaybe<Scalars['DateTime']>;
+  chords?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
   lyrics?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
   songVersion?: InputMaybe<SongVersion>;
@@ -3784,6 +3832,8 @@ export type SongUpdateManyInlineInput = {
 
 export type SongUpdateManyInput = {
   availableAt?: InputMaybe<Scalars['DateTime']>;
+  chords?: InputMaybe<Scalars['String']>;
+  description?: InputMaybe<Scalars['String']>;
   lyrics?: InputMaybe<Scalars['String']>;
   songVersion?: InputMaybe<SongVersion>;
   title?: InputMaybe<Scalars['String']>;
@@ -3864,6 +3914,25 @@ export type SongWhereInput = {
   availableAt_not?: InputMaybe<Scalars['DateTime']>;
   /** All values that are not contained in given list. */
   availableAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
+  chords?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  chords_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  chords_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  chords_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  chords_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  chords_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  chords_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  chords_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  chords_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  chords_starts_with?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   createdAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -3880,6 +3949,25 @@ export type SongWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   createdBy?: InputMaybe<UserWhereInput>;
+  description?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  description_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  description_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  description_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  description_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  description_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  description_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  description_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  description_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  description_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -4961,7 +5049,7 @@ export type GetSongBySlugQueryVariables = Exact<{
 }>;
 
 
-export type GetSongBySlugQuery = { __typename?: 'Query', song?: { __typename?: 'Song', title: string, videoId: string, lyrics?: string | null, author?: { __typename?: 'Author', avatarURL: string, bio: string, name: string } | null } | null };
+export type GetSongBySlugQuery = { __typename?: 'Query', song?: { __typename?: 'Song', title: string, videoId: string, description?: string | null, lyrics?: string | null, chords?: string | null, author?: { __typename?: 'Author', avatarURL: string, bio: string, name: string } | null } | null };
 
 export type GetSongsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5008,7 +5096,9 @@ export const GetSongBySlugDocument = gql`
   song(where: {slug: $slug}) {
     title
     videoId
+    description
     lyrics
+    chords
     author {
       avatarURL
       bio
