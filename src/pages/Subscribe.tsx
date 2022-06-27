@@ -43,7 +43,7 @@ export default function Subscribe() {
             <strong className="text-blue-500">YouTube</strong>
           </h1>
           <p className="mt-4 text-gray-200 leading-relaxed">
-            A cada dia um novo vídeo da minha seleção de músicas no youtube para você conhecer e adicionar a sua própria.
+            A cada dia um novo vídeo da minha seleção de músicas no youtube para você conhecer e adicionar na sua própria.
           </p>
         </div>
         <div className="p-8 bg-gray-700 border border-gray-500 rounded">
