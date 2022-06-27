@@ -6,11 +6,13 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { Link, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
-interface LessonProps {
+type SongVersion = 'live' | 'original' | 'cover' | 'acoustic';
+
+interface SongProps {
   title: string;
   slug: string;
   availableAt: Date;
-  type: 'live' | 'original' | 'acoustic' | 'cover';
+  version: SongVersion;
 }
 
 const songVersion = {
@@ -20,13 +22,13 @@ const songVersion = {
   cover: 'cover',
 };
 
-export default function Lesson(props: LessonProps) {
+export default function Song(props: SongProps) {
   const { slug: slugParam } = useParams<{ slug: string }>();
   const {
     title,
     slug,
     availableAt,
-    type,
+    version,
   } = props;
 
   const isActiveLesson = slug === slugParam;
@@ -72,7 +74,7 @@ export default function Lesson(props: LessonProps) {
             'border-green-300': !isActiveLesson,
           })}
           >
-            { songVersion[type] }
+            { songVersion[version] }
           </span>
         </header>
         <strong className={classNames('mt-5 block', {

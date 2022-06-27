@@ -3884,8 +3884,10 @@ export type SongUpsertWithNestedWhereUniqueInput = {
 };
 
 export enum SongVersion {
+  Acoustic = 'acoustic',
+  Cover = 'cover',
   Live = 'live',
-  Studio = 'studio'
+  Original = 'original'
 }
 
 /** Identifies documents */

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGetSongsQuery } from '../graphql/generated';
-import Lesson from './Lesson';
+import Song from './Song';
 
 export default function Sidebar() {
   const { data } = useGetSongsQuery();
@@ -12,12 +12,12 @@ export default function Sidebar() {
       </span>
       <div className="flex flex-col gap-8">
         { data?.songs.map((song) => (
-          <Lesson
+          <Song
             key={song.id}
             title={song.title}
             slug={song.slug}
             availableAt={new Date(song.availableAt)}
-            type={song.songVersion}
+            version={song.songVersion}
           />
         )) }
       </div>
