@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Event from './pages/Event';
 import Subscribe from './pages/Subscribe';
 
-const DEFAULT_SLUG = 'abertura-do-evento-ignite-lab';
+const DEFAULT_SLUG = 'popular-monster';
 
 export default function Router() {
   return (
