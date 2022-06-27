@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
-import imgUrl from '../assets/code-mockup.png';
+import youtube from '../assets/youtube.png';
 import { useCreateSubscriberMutation } from '../graphql/generated';
 
 export default function Subscribe() {
@@ -24,9 +24,14 @@ export default function Subscribe() {
   }
 
   return (
-    <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
-      <div className=" w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto">
-        <div className="max-w-[640px]">
+    <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col justify-center items-center">
+      <img
+        src={youtube}
+        alt="code mockup"
+        className="absolute opacity-50 -z-10 h-[500px]"
+      />
+      <div className=" w-full max-w-[1100px] flex items-center justify-between mx-auto">
+        <div className="max-w-[640px] flex flex-col items-center">
           <Logo />
           <h1 className="mt-8 text-[2.5rem] leading-tight">
             Conheça
@@ -67,11 +72,6 @@ export default function Subscribe() {
           </form>
         </div>
       </div>
-      <img
-        src={imgUrl}
-        alt="code mockup"
-        className="mt-10"
-      />
     </div>
   );
 }
