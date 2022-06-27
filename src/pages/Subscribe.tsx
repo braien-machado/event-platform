@@ -1,7 +1,7 @@
-/* eslint-disable max-len */
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
+import imgUrl from '../assets/code-mockup.png';
 import { useCreateSubscriberMutation } from '../graphql/generated';
 
 export default function Subscribe() {
@@ -67,7 +67,7 @@ export default function Subscribe() {
         </div>
       </div>
       <img
-        src="/src/assets/code-mockup.png"
+        src={imgUrl}
         alt="code mockup"
         className="mt-10"
       />

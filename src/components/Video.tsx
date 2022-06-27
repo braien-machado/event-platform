@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { DefaultUi, Player, Youtube } from '@vime/react';
 import {
   CaretRight,
