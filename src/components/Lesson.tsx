@@ -10,7 +10,7 @@ interface LessonProps {
   title: string;
   slug: string;
   availableAt: Date;
-  type: 'live' | 'class';
+  type: 'live' | 'studio';
 }
 
 export default function Lesson(props: LessonProps) {
@@ -52,7 +52,7 @@ export default function Lesson(props: LessonProps) {
             })}
             >
               <CheckCircle size={20} />
-              Conteúdo liberado
+              Música liberada
             </span>
           ) : (
             <span className="flex items-center text-sm text-orange-500 font-medium gap-2">
@@ -65,7 +65,7 @@ export default function Lesson(props: LessonProps) {
             'border-green-300': !isActiveLesson,
           })}
           >
-            { type === 'live' ? 'AO VIVO' : 'AULA PRÁTICA' }
+            { type === 'live' ? 'AO VIVO' : 'ESTÚDIO' }
           </span>
         </header>
         <strong className={classNames('mt-5 block', {

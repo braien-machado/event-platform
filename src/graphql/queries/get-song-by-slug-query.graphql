@@ -1,0 +1,12 @@
+query GetSongBySlug ($slug: String) {
+    song(where: {slug: $slug}) {
+      title
+      videoId
+      lyrics
+      author {
+        avatarURL
+        bio
+        name
+      }
+    }
+  }

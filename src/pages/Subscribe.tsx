@@ -1,7 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo';
-import youtube from '../assets/youtube.png';
+import youtubeBg from '../assets/youtube-bg.png';
 import { useCreateSubscriberMutation } from '../graphql/generated';
 
 export default function Subscribe() {
@@ -26,7 +26,7 @@ export default function Subscribe() {
   return (
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col justify-center items-center">
       <img
-        src={youtube}
+        src={youtubeBg}
         alt="code mockup"
         className="absolute opacity-50 -z-10 h-[500px]"
       />

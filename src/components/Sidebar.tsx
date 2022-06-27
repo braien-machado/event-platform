@@ -1,9 +1,9 @@
 import React from 'react';
-import { useGetLessonsQuery } from '../graphql/generated';
+import { useGetSongsQuery } from '../graphql/generated';
 import Lesson from './Lesson';
 
 export default function Sidebar() {
-  const { data } = useGetLessonsQuery();
+  const { data } = useGetSongsQuery();
 
   return (
     <aside className="w-[348px] bg-gray-700 p-6 border-gray-600">
@@ -11,13 +11,13 @@ export default function Sidebar() {
         Cronograma de aulas
       </span>
       <div className="flex flex-col gap-8">
-        { data?.lessons.map((lesson) => (
+        { data?.songs.map((song) => (
           <Lesson
-            key={lesson.id}
-            title={lesson.title}
-            slug={lesson.slug}
-            availableAt={new Date(lesson.availableAt)}
-            type={lesson.lessonType}
+            key={song.id}
+            title={song.title}
+            slug={song.slug}
+            availableAt={new Date(song.availableAt)}
+            type={song.songVersion}
           />
         )) }
       </div>

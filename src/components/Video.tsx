@@ -7,21 +7,21 @@ import {
 } from 'phosphor-react';
 import React from 'react';
 import '@vime/core/themes/default.css';
-import { useGetLessonBySlugQuery } from '../graphql/generated';
+import { useGetSongBySlugQuery } from '../graphql/generated';
 
 interface VideoProps {
-  lessonSlug: string;
+  songSlug: string;
 }
 
 export default function Video(props: VideoProps) {
-  const { lessonSlug } = props;
-  const { data } = useGetLessonBySlugQuery({
+  const { songSlug } = props;
+  const { data } = useGetSongBySlugQuery({
     variables: {
-      slug: lessonSlug,
+      slug: songSlug,
     },
   });
 
-  if (!data || !data.lesson) {
+  if (!data || !data.song) {
     return (
       <div className="flex-1">
         Carregando...
@@ -34,7 +34,7 @@ export default function Video(props: VideoProps) {
       <div className="bg-black flex justify-center">
         <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
           <Player>
-            <Youtube videoId={data.lesson.videoId} />
+            <Youtube videoId={data.song.videoId} />
             <DefaultUi />
           </Player>
         </div>
@@ -43,24 +43,24 @@ export default function Video(props: VideoProps) {
         <div className="flex items-start gap-8">
           <div className="flex-1">
             <h1 className="text-2xl font-bold">
-              {data.lesson.title}
+              {data.song.title}
             </h1>
             <p className="mt-4 text-gray-200 leading-relaxed">
-              {data.lesson.description}
+              {data.song.lyrics}
             </p>
-            { data.lesson.teacher && (
+            { data.song.author && (
               <div className="flex items-center gap-4 mt-6">
                 <img
                   className="h-16 w-16 rounded-full border-2 border-blue-500"
-                  src={data.lesson.teacher.avatarURL}
-                  alt="teacher avatar"
+                  src={data.song.author.avatarURL}
+                  alt="author avatar or logo"
                 />
                 <div>
                   <strong className="font-bold text-2xl block">
-                    {data.lesson.teacher.name}
+                    {data.song.author.name}
                   </strong>
                   <span className="text-gray-200 text-sm block">
-                    {data.lesson.teacher.bio}
+                    {data.song.author.bio}
                   </span>
                 </div>
               </div>
