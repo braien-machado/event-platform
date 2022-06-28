@@ -1,4 +1,4 @@
-import { List } from 'phosphor-react';
+import { List, X } from 'phosphor-react';
 import React from 'react';
 import Logo from './Logo';
 
@@ -22,7 +22,11 @@ export default function Header(props: HeaderProps) {
         className="flex items-center lg:hidden gap-2"
       >
         <h1 className="text-xl">Músicas</h1>
-        <List size={40} className="text-blue-500" />
+        { isMenuHidden ? (
+          <List size={40} className="text-blue-500" />
+        ) : (
+          <X size={40} className="text-blue-500" />
+        )}
       </button>
     </header>
   );
