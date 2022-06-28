@@ -46,7 +46,7 @@ export default function Subscribe() {
             A cada dia um novo vídeo da minha seleção de músicas no youtube para você conhecer e adicionar na sua própria.
           </p>
         </div>
-        <div className="p-8 bg-gray-700 border border-gray-500 rounded">
+        <div className="p-8 bg-gray-700 border border-gray-500 rounded mb-5 xl:mb-0">
           <strong className="text-2xl mb-6 block">Inscreva-se gratuitamente</strong>
           <form onSubmit={handleSubscribe} className="flex flex-col gap-2 w-full">
             <input
