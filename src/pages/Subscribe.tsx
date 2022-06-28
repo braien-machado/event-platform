@@ -24,16 +24,16 @@ export default function Subscribe() {
   }
 
   return (
-    <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col justify-center items-center">
+    <div className="relative min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col justify-center items-center">
       <img
         src={youtubeBg}
         alt="code mockup"
-        className="absolute opacity-50 -z-10 h-[500px]"
+        className="absolute opacity-50 -z-10 w-full max-w-[800px]"
       />
-      <div className=" w-full max-w-[1100px] flex items-center justify-between mx-auto">
-        <div className="max-w-[640px] flex flex-col items-center">
+      <div className=" w-full max-w-[1100px] flex flex-col xl:flex-row items-center justify-between mx-auto">
+        <div className="max-w-[640px] flex flex-col items-center mb-5 mx-10">
           <Logo />
-          <h1 className="mt-8 text-[2.5rem] leading-tight">
+          <h1 className="mt-8 text-[2.5rem] leading-tight text-center xl:text-left">
             Conheça
             {' '}
             <strong className="text-blue-500">minha playlist completa</strong>
@@ -42,7 +42,7 @@ export default function Subscribe() {
             {' '}
             <strong className="text-blue-500">YouTube</strong>
           </h1>
-          <p className="mt-4 text-gray-200 leading-relaxed">
+          <p className="mt-4 text-gray-200 leading-relaxed text-center xl:text-left">
             A cada dia um novo vídeo da minha seleção de músicas no youtube para você conhecer e adicionar na sua própria.
           </p>
         </div>
