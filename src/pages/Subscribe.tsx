@@ -27,7 +27,7 @@ export default function Subscribe() {
     <div className="relative min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col justify-center items-center">
       <img
         src={youtubeBg}
-        alt="code mockup"
+        alt="pc with youtube logo"
         className="absolute opacity-50 -z-10 w-full max-w-[800px]"
       />
       <div className=" w-full max-w-[1100px] flex flex-col xl:flex-row items-center justify-between mx-auto">
