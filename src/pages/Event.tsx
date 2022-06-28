@@ -15,7 +15,7 @@ export default function Event() {
       <Header toggleMenu={setIsMenuHidden} isMenuHidden={isMenuHidden} />
       <main className="flex flex-1">
         <Video songSlug={slug || DEFAULT_SLUG} />
-        <Sidebar />
+        <Sidebar isMenuHidden={isMenuHidden} />
       </main>
     </div>
   );
