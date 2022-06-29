@@ -21,7 +21,7 @@ export default function Header(props: HeaderProps) {
         type="button"
         className="flex items-center lg:hidden gap-2"
       >
-        <h1 className="text-xl">Músicas</h1>
+        <h1 className="text-xl hidden sm:block">Músicas</h1>
         { isMenuHidden ? (
           <List size={40} className="text-blue-500" />
         ) : (
