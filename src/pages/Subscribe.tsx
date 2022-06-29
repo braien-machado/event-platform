@@ -28,7 +28,7 @@ export default function Subscribe() {
       <img
         src={youtubeBg}
         alt="pc with youtube logo"
-        className="absolute opacity-50 -z-10 w-full max-w-[800px]"
+        className="absolute opacity-50 -z-10 w-[80%] max-w-[500px]"
       />
       <div className=" w-full max-w-[1100px] flex flex-col xl:flex-row items-center justify-between mx-auto">
         <div className="max-w-[640px] flex flex-col items-center mb-5 mx-10">
