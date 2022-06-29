@@ -1,4 +1,3 @@
-import { DefaultUi, Player, Youtube } from '@vime/react';
 import {
   Article,
   CaretRight,
@@ -7,7 +6,6 @@ import {
 } from 'phosphor-react';
 import React from 'react';
 import '@vime/core/themes/default.css';
-import YouTube, { YouTubeProps } from 'react-youtube';
 import { useGetSongBySlugQuery } from '../graphql/generated';
 
 interface VideoProps {
@@ -30,26 +28,18 @@ export default function Video(props: VideoProps) {
     );
   }
 
-  // const opts: YouTubeProps['opts'] = {
-  //   height: '378',
-  // };
-
   return (
     <div className="flex-1">
       <div className="bg-black flex justify-center">
         <div
-          className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video"
+          className="relative h-full w-full max-w-[1100px] max-h-[60vh] aspect-video"
         >
-          <Player>
-            <Youtube videoId={data.song.videoId} />
-            <DefaultUi />
-          </Player>
+          <iframe
+            className="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full border-none"
+            src={`https://www.youtube.com/embed/${data.song.videoId}`}
+            title={data.song.title}
+          />
         </div>
-        {/* <div
-          className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video flex justify-center items-center"
-        >
-          <YouTube videoId={data.song.videoId} className="" />
-        </div> */}
       </div>
       <div className="p-8 max-w-[1100px] mx-auto">
         <div className="flex flex-col sm:flex-row items-start gap-8">
