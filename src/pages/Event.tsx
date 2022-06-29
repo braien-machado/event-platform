@@ -12,7 +12,7 @@ export default function Event() {
   const { slug } = useParams<{ slug: string }>();
   return (
     <div className="flex flex-col min-h-screen">
-      <Header toggleMenu={setIsMenuHidden} isMenuHidden={isMenuHidden} />
+      <Header setIsMenuHidden={setIsMenuHidden} isMenuHidden={isMenuHidden} />
       <main className="flex flex-1">
         <Video songSlug={slug || DEFAULT_SLUG} />
         <Sidebar isMenuHidden={isMenuHidden} />

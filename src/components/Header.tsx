@@ -1,15 +1,21 @@
 import { List, X } from 'phosphor-react';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Logo from './Logo';
 
 interface HeaderProps {
   // eslint-disable-next-line no-unused-vars
-  toggleMenu: (bool: boolean) => void;
+  setIsMenuHidden: (bool: boolean) => void;
   isMenuHidden: boolean;
 }
 
 export default function Header(props: HeaderProps) {
-  const { toggleMenu, isMenuHidden } = props;
+  const { setIsMenuHidden, isMenuHidden } = props;
+  const { slug } = useParams<{ slug: string }>();
+
+  useEffect(() => {
+    setIsMenuHidden(!isMenuHidden);
+  }, [slug]);
 
   return (
     <header
@@ -17,7 +23,7 @@ export default function Header(props: HeaderProps) {
     >
       <Logo />
       <button
-        onClick={() => toggleMenu(!isMenuHidden)}
+        onClick={() => setIsMenuHidden(!isMenuHidden)}
         type="button"
         className="flex items-center lg:hidden gap-2"
       >
