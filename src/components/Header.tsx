@@ -15,6 +15,7 @@ export default function Header(props: HeaderProps) {
 
   useEffect(() => {
     setIsMenuHidden(!isMenuHidden);
+    window.scrollTo(0, 0);
   }, [slug]);
 
   return (
