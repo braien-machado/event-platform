@@ -1,4 +1,3 @@
-import { DefaultUi, Player, Youtube } from '@vime/react';
 import {
   Article,
   CaretRight,
@@ -6,7 +5,6 @@ import {
   Plus,
 } from 'phosphor-react';
 import React from 'react';
-import '@vime/core/themes/default.css';
 import { useGetSongBySlugQuery } from '../graphql/generated';
 
 interface VideoProps {
@@ -32,15 +30,18 @@ export default function Video(props: VideoProps) {
   return (
     <div className="flex-1">
       <div className="bg-black flex justify-center">
-        <div className="h-full w-full max-w-[1100px] max-h-[60vh] aspect-video">
-          <Player>
-            <Youtube videoId={data.song.videoId} />
-            <DefaultUi />
-          </Player>
+        <div
+          className="relative h-full w-full max-w-[1100px] max-h-[60vh] aspect-video"
+        >
+          <iframe
+            className="absolute z-10 top-0 left-0 right-0 bottom-0 w-full h-full border-none"
+            src={`https://www.youtube.com/embed/${data.song.videoId}`}
+            title={data.song.title}
+          />
         </div>
       </div>
       <div className="p-8 max-w-[1100px] mx-auto">
-        <div className="flex items-start gap-8">
+        <div className="flex flex-col sm:flex-row items-start gap-8">
           <div className="flex-1">
             <h1 className="text-2xl font-bold">
               {data.song.title}
@@ -66,7 +67,7 @@ export default function Video(props: VideoProps) {
               </div>
             ) }
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-row w-full sm:w-fit justify-center sm:flex-start sm:flex-col gap-4">
             {
               data.song.lyrics && (
                 <a
@@ -93,42 +94,46 @@ export default function Video(props: VideoProps) {
             }
           </div>
         </div>
-        <div className="gap-8 mt-20 grid grid-cols-2">
+        <div className="gap-8 mt-20 grid grid-cols-1 md:grid-cols-2">
           <a
-            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
+            className="bg-gray-700 rounded overflow-hidden flex justify-between items-stretch gap-6 hover:bg-gray-600 transition-colors"
             href="https://www.youtube.com/results?search_query=playlist"
             target="blank"
           >
-            <div className="bg-green-700 h-full p-6- flex items-center">
-              <Plus size={40} />
-            </div>
-            <div className="py-6 leading-relaxed">
-              <strong className="text-2xl">
-                Mais playlists
-              </strong>
-              <p className="text-sm text-gray-200 mt-2">
-                Encontre novas playlists pra curtir seus momentos
-              </p>
+            <div className="flex gap-6">
+              <div className="bg-green-700 h-full p-6- flex items-center">
+                <Plus size={40} />
+              </div>
+              <div className="py-6 leading-relaxed">
+                <strong className="text-2xl">
+                  Mais playlists
+                </strong>
+                <p className="text-sm text-gray-200 mt-2">
+                  Encontre novas playlists pra curtir seus momentos
+                </p>
+              </div>
             </div>
             <div className="h-full p-6 flex items-center">
               <CaretRight size={24} />
             </div>
           </a>
           <a
-            className="bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors"
+            className="bg-gray-700 rounded overflow-hidden flex justify-between items-stretch gap-6 hover:bg-gray-600 transition-colors"
             href="https://music.youtube.com/"
             target="blank"
           >
-            <div className="bg-green-700 h-full p-6- flex items-center">
-              <Plus size={40} />
-            </div>
-            <div className="py-6 leading-relaxed">
-              <strong className="text-2xl">
-                Sua própria playlist
-              </strong>
-              <p className="text-sm text-gray-200 mt-2">
-                Crie sua playlist com cantores, bandas e músicas de sua preferência
-              </p>
+            <div className="flex gap-6">
+              <div className="bg-green-700 h-full p-6- flex items-center">
+                <Plus size={40} />
+              </div>
+              <div className="py-6 leading-relaxed">
+                <strong className="text-2xl">
+                  Sua própria playlist
+                </strong>
+                <p className="text-sm text-gray-200 mt-2">
+                  Crie sua playlist com cantores, bandas e músicas de sua preferência
+                </p>
+              </div>
             </div>
             <div className="h-full p-6 flex items-center">
               <CaretRight size={24} />

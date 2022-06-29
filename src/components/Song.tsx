@@ -40,7 +40,7 @@ export default function Song(props: SongProps) {
     <Link
       to={`/event/song/${slug}`}
       className={classNames('group', {
-        'pointer-events-none': !isLessonAvailable,
+        'pointer-events-none': !isLessonAvailable || isActiveLesson,
       })}
     >
       <span className=" text-gray-300">
