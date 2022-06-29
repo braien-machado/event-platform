@@ -13,10 +13,11 @@ export default function Sidebar(props: SidebarProps) {
 
   return (
     <aside
-      className={classNames('absolute z-10 lg:static lg:block w-[348px] bg-gray-700 p-6 border-gray-600 transition-all', {
-        // '-right-[348px]': isMenuHidden,
-        'right-0': !isMenuHidden,
-        hidden: isMenuHidden,
+      className={classNames('absolute z-50 lg:static lg:block lg:w-[348px] bg-gray-700 p-6 border-gray-600 transition-all', {
+        '-left-[348px]': isMenuHidden,
+        'left-0': !isMenuHidden,
+        'w-[348px]': isMenuHidden,
+        'w-full': !isMenuHidden,
       })}
     >
       <span className="font-bold text-2xl pb-6 mb-6 border-b border-gray-500 block">
