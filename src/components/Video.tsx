@@ -5,7 +5,6 @@ import {
   Plus,
 } from 'phosphor-react';
 import React from 'react';
-import '@vime/core/themes/default.css';
 import { useGetSongBySlugQuery } from '../graphql/generated';
 
 interface VideoProps {
